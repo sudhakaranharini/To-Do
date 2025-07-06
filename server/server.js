@@ -7,7 +7,8 @@ const cors=require('cors')
 const app=express()
 app.use(express.json())
 app.use(cors({
-    origin:"https://to-do-zeta-seven-38.vercel.app"
+    origin:"https://to-do-zeta-seven-38.vercel.app",
+    credentials:true
 }))
 const mongoose=require('mongoose')
 mongoose.connect(process.env.MONGO_URL, {
@@ -97,7 +98,7 @@ app.post('/login',async (req,res)=>{
         if(!ispassvalid){
             return res.status(400).json({message:"Incorrect Password"})
         }
-        const token=jwt.sign({id:user._id},"secret_key",{expiresIn:"1h"})
+        const token=jwt.sign({id:user._id},process.env.JUT_SECRET,{expiresIn:"1h"})
         res.status(200).json({message:"Login successfull",token})
     }catch (error) {
         res.status(500).json({ message: error.message });
@@ -196,4 +197,5 @@ app.delete('/todos/:id',middleware,async (req,res)=>{
     }
 
 })
-app.listen(process.env.PORT)
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
