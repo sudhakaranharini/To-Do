@@ -98,7 +98,7 @@ app.post('/login',async (req,res)=>{
         if(!ispassvalid){
             return res.status(400).json({message:"Incorrect Password"})
         }
-        const token=jwt.sign({id:user._id},process.env.JUT_SECRET,{expiresIn:"1h"})
+        const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:"1h"})
         res.status(200).json({message:"Login successfull",token})
     }catch (error) {
         res.status(500).json({ message: error.message });
@@ -116,7 +116,7 @@ app.post('/forgot-password',async (req,res)=>{
         user.otpExpiry=otpExpiry;
         await user.save()
         const mailOptions={
-            from:'harinisudhakaran.2509@gmail.com',
+            from:process.env.EMAIL_USER,
             to:email,
             subject:'Your OTP for Password Reset',
             text:`Your OTP for password reset is :${otp}.It will expire in 5 mins`
@@ -180,7 +180,7 @@ app.get('/todos/:id',middleware,async (req,res)=>{
     const id=req.params.id
     try{
         const todo=await todoModel.findOne({_id:id,userId:req.user.id})
-        res.status(201).json(todo)
+        res.status(200).json(todo)
     }
     catch(error){
          res.status(500).json({message:error.message})
