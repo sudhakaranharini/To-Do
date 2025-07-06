@@ -7,7 +7,7 @@ const cors=require('cors')
 const app=express()
 app.use(express.json())
 app.use(cors({
-    origin:"https://to-do-zeta-seven-38.vercel.app",
+    origin:["https://to-do-git-main-sudhakaranharinis-projects.vercel.app"],
     credentials:true
 }))
 const mongoose=require('mongoose')
