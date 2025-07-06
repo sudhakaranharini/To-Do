@@ -1,0 +1,157 @@
+body{
+    background-color: rgba(235, 219, 222, 0.86);
+    font-family: sans-serif;
+    position:relative;
+}
+.heading{
+    
+    background-color: rgb(84, 19, 84);
+    color: aliceblue;
+    text-align: center;
+    padding: 10px;
+}
+.Add{
+    text-align: center
+}
+.Add-style{
+    color: aliceblue;
+    background-color:rgb(225, 14, 225);
+    border: none;
+    padding:10px;
+    min-width: 100px;
+    border-radius: 3%;
+    margin: 20px;
+}
+.Add-style:hover{
+    cursor: pointer;
+    background-color:rgb(227, 132, 227);
+}
+.active{
+    background-color: rgba(225, 14, 225, 0.253);
+    color:black;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+}
+.add-field{
+    max-width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(103, 33, 103);
+    border-radius: 5px;
+    padding-top:50px;
+    padding-bottom: 50px;
+    border: 3px solid black;
+}
+input,button{
+    padding: 15px;
+    margin: 10px;
+    border: 3px solid black;
+}
+button{
+    background-color: green;
+    border: none;
+    color: aliceblue;
+    border-radius: 5px;
+}
+button:hover{
+    cursor: pointer;
+    background-color:rgba(0, 128, 0, 0.741);
+    border: 2px solid rgba(0, 0, 0, 0.707);
+}
+.delete:hover{
+    background-color: rgba(179, 63, 63, 0.762);
+    border: 2px solid rgba(0, 0, 0, 0.707);
+}
+.edit-delete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:50%;
+    margin: auto;
+    background-color:  rgb(103, 33, 103);
+    margin-bottom: 5px;
+    color: aliceblue;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+
+}
+.delete{
+    background-color: rgb(179, 63, 63);
+}
+.search-button{
+    display:flex;
+    justify-content: center;
+}
+.search-field{
+    width: 60%;
+    background-color:rgba(80, 25, 80, 0.738);
+    border-radius: 5px;
+}
+.search-field::placeholder{
+    color: aliceblue;
+}
+.todo{
+    background-color: rgb(84, 19, 84);
+    color: aliceblue;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+.Login{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.Login-Main{
+    background-color: rgb(91, 28, 91) ;
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.Span{
+    display:flex;
+    color: aliceblue;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+span:hover{
+    cursor: pointer;
+    color:pink;
+}
+.h5:hover{
+    cursor: pointer;
+    background-color: rgba(84, 19, 84, 0.658);
+}
+.h5{
+    display: inline;
+    background-color: rgb(84, 19, 84);
+    color:aliceblue;
+    border-radius: 3px;
+    margin: 15px;
+    position: absolute;
+    right: 0;
+    padding: 3px;
+}
+.forgot-input{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10%;
+    background-color:rgb(84, 19, 84);
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
