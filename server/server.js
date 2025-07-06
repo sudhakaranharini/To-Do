@@ -1,13 +1,19 @@
 const express=require('express')
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const nodemailer=require('nodemailer')
 const jwt=require('jsonwebtoken');
 const cors=require('cors')
 const app=express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:"https://to-do-zeta-seven-38.vercel.app"
+}))
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/Todo-app')
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 .then(()=>console.log("database connected"))
 .catch((error)=>{
     console.log(error.message)
@@ -47,15 +53,15 @@ const userModel=mongoose.model('user',userSchema)
 const transporter=nodemailer.createTransport({
     service:'gmail',
     auth:{
-        user:'harinisudhakaran.2509@gmail.com',
-        pass:'brvf fdrm wnuu wxxs'
+        user: process.env.EMAIL_USER,
+        pass:process.env.EMAIL_PASS
     }
 })
 const middleware=(req,res,next)=>{
     const authheader=req.headers['authorization'];
     const token=authheader && authheader.split(' ')[1];
     if(!token) return res.status(401).json({message:"Token not provided"})
-    jwt.verify(token,"secret_key",(err,user)=>{
+    jwt.verify(token,process.env.JWT_SECRET,(err,user)=>{
         if(err) return res.status(401).json({message:"Invalid Token"});
         req.user=user
         next();
@@ -72,7 +78,7 @@ app.post('/signup',async (req,res)=>{
         const hashedpassword=await bcrypt.hash(password,10)
         const user=new userModel({username,password:hashedpassword,email})
         await user.save();
-        const token = jwt.sign({ id: user._id }, "secret_key", { expiresIn: "1h" });
+        const token = jwt.sign({ id: user._id },process.env.JWT_SECRET, { expiresIn: "1h" });
         res.status(201).json({ message: "User created successfully", token });
 
     }
@@ -152,7 +158,7 @@ app.post('/todos',middleware,async (req,res)=>{
     try{
         const todo=new todoModel({title,description,userId:req.user.id})
         await todo.save()
-        res.status(201).json(todo)
+        res.status(200).json(todo)
     }
     catch(error){
          res.status(500).json({message:error.message})
@@ -163,7 +169,7 @@ app.put('/todos/:id',middleware,async (req,res)=>{
     const {title,description}=req.body
     try{
         const todo=await todoModel.findOneAndUpdate({_id:id,userId:req.user.id},{title,description},{new:true})
-        res.status(201).json(todo)
+        res.status(200).json(todo)
     }
     catch(error){
          res.status(500).json({message:error.message})
@@ -190,4 +196,4 @@ app.delete('/todos/:id',middleware,async (req,res)=>{
     }
 
 })
-app.listen(8000)
+app.listen(process.env.PORT)

@@ -25,7 +25,6 @@ function Singnin() {
     <h1 className='todo'>TO-DO SIGNUP</h1>
    <div className='Login-Main'>
    <div className='Login'>
-    
     <input className='login-input' type="text" placeholder='UserName' onChange={(e)=>setUsername(e.target.value)}/>
     <input className='login-input' type="email" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>
     <input className='login-input'type="password" placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
