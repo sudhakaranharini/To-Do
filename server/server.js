@@ -6,14 +6,14 @@ const jwt=require('jsonwebtoken');
 const cors=require('cors')
 const app=express()
 app.use(express.json())
-const allowedOrigins = [
-    "https://to-do-git-main-sudhakaranharinis-projects.vercel.app",
-    "https://to-do-ctkd.onrender.com"
-];
-
 app.use(cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
+        if (
+            !origin || 
+            origin === "https://to-do-git-main-sudhakaranharinis-projects.vercel.app" ||
+            origin === "https://to-do-ctkd.onrender.com" ||
+            /\.vercel\.app$/.test(new URL(origin).hostname)
+        ) {
             callback(null, true);
         } else {
             callback(new Error("Not allowed by CORS: " + origin));
@@ -21,6 +21,7 @@ app.use(cors({
     },
     credentials: true
 }));
+
 
 const mongoose=require('mongoose')
 mongoose.connect(process.env.MONGO_URL, {
