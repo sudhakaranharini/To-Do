@@ -7,7 +7,7 @@ function Forgot() {
     const navigate=useNavigate()
     const [email,setEmail]=useState("")
     const handleSubmit=async()=>{
-        await axios.post('http://localhost:8000/forgot-password',{email})
+        await axios.post('https://to-do-ctkd.onrender.com/forgot-password',{email})
         .then((res)=>{alert(res.data.message);
             navigate('/Reset')
         })

@@ -10,7 +10,7 @@ function Edit() {
   const [description,setDescription]=useState("");
   const token = localStorage.getItem('token')
   useEffect(()=>{
-      axios.get(`http://localhost:8000/todos/${id}`,{headers: { Authorization: `Bearer ${token}` }})
+      axios.get(`https://to-do-ctkd.onrender.com/todos/${id}`,{headers: { Authorization: `Bearer ${token}` }})
       .then((res)=>{
         setTitle(res.data.title);
         setDescription(res.data.description)
@@ -18,7 +18,7 @@ function Edit() {
       .catch(err=>console.log(err.message))
   },[])
   const handleOnClick=async()=>{
-    await axios.put(`http://localhost:8000/todos/${id}`,{title,description},{headers: { Authorization: `Bearer ${token}` }})
+    await axios.put(`https://to-do-ctkd.onrender.com/todos/${id}`,{title,description},{headers: { Authorization: `Bearer ${token}` }})
     .then(()=>{navigate('/view'),alert("Todo updated")})
     .catch(err=>console.log(err.message))
   }

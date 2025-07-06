@@ -9,7 +9,7 @@ function Reset() {
     const [newPassword, setNewPassword] = useState("");
 
     const handleSubmit = async () => {
-            await axios.post('http://localhost:8000/reset-password', { email, otp, newPassword})
+            await axios.post('https://to-do-ctkd.onrender.com/reset-password', { email, otp, newPassword})
             .then((res)=>{
                 alert(res.data.message);
                 navigate('/')})

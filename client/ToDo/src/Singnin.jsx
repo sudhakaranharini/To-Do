@@ -8,7 +8,7 @@ function Singnin() {
     const [password,setPassword]=useState("")
     const navigate=useNavigate()
     const handleClick=()=>{
-        axios.post('http://localhost:8000/signup',{username,email,password})
+        axios.post('https://to-do-ctkd.onrender.com/signup',{username,email,password})
         .then((res)=>{console.log(res.data.message);
             alert(res.data.message);
             localStorage.setItem('token', res.data.token);

@@ -10,18 +10,18 @@ function View() {
      const token=localStorage.getItem('token');
   useEffect(()=>{
    
-    axios.get('http://localhost:8000/todos',{headers: { Authorization: `Bearer ${token}`}})
+    axios.get('https://to-do-ctkd.onrender.com/todos',{headers: { Authorization: `Bearer ${token}`}})
     .then((res)=>setTodos(res.data))
     .catch(err=>console.log(err.message))
   },[])
   const handleClick=(id)=>{
-    axios.delete(`http://localhost:8000/todos/${id}`,{headers: { Authorization: `Bearer ${token}` }})
+    axios.delete(`https://to-do-ctkd.onrender.com/todos/${id}`,{headers: { Authorization: `Bearer ${token}` }})
     .then(()=>{alert("deleted");
             fetchTodos();})
     .catch(err=>console.log(err.message))
   }
 const fetchTodos=()=>{
-  axios.get('http://localhost:8000/todos',{headers: { Authorization: `Bearer ${token}` }})
+  axios.get('https://to-do-ctkd.onrender.com/todos',{headers: { Authorization: `Bearer ${token}` }})
     .then((res) => setTodos(res.data))
     .catch(err => console.log(err.message));
 };

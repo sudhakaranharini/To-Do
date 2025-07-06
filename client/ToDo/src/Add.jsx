@@ -9,7 +9,7 @@ function Add() {
     const [description,setDescription]=useState("");
     const handleOnClick=async()=>{
             const token=localStorage.getItem('token')
-            await axios.post('http://localhost:8000/todos',{title,description},{headers:{Authorization:`Bearer ${token}`}})
+            await axios.post('https://to-do-ctkd.onrender.com/todos',{title,description},{headers:{Authorization:`Bearer ${token}`}})
             .then(()=>{navigate('/view'),alert("Todo Added")})
             .catch(err=>console.log(err.message))
     }
