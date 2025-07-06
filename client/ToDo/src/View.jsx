@@ -43,8 +43,10 @@ const fetchTodos=()=>{
           <p>{todo.description}</p>
            </div>
            <div>
-          <button  onClick={()=>{navigate(`/Edit/${todo._id}`)}}>Edit</button>
+          <div className="edit-change">
+          <button  className='edit' onClick={()=>{navigate(`/Edit/${todo._id}`)}}>Edit</button>
           <button  className='delete' onClick={()=>{handleClick(todo._id)}}>Delete</button>
+          </div>
           </div>
         </li>
      

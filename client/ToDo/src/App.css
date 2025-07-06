@@ -68,7 +68,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:50%;
+    max-width:50%;
     margin: auto;
     background-color:  rgb(103, 33, 103);
     margin-bottom: 5px;
@@ -155,3 +155,14 @@ span:hover{
     align-items: center;
     height: 50vh;
 }
+  .edit-change{
+    display: flex;
+  }
+  .edit{
+    max-width: 40%;
+    font-size: 0.6rem;
+  }
+  .delete{
+    max-width:35%;
+    font-size: 0.6rem;
+  }
