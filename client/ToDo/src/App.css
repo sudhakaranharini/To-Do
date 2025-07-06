@@ -2,9 +2,13 @@ body{
     background-color: rgba(235, 219, 222, 0.86);
     font-family: sans-serif;
     position:relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 .heading{
-    
+    margin:1px;
     background-color: rgb(84, 19, 84);
     color: aliceblue;
     text-align: center;
@@ -32,7 +36,7 @@ body{
     border: 2px solid rgba(0, 0, 0, 0.6);
 }
 .add-field{
-    max-width: 50%;
+    max-width: 30%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -40,58 +44,70 @@ body{
     align-items: center;
     background-color: rgb(103, 33, 103);
     border-radius: 5px;
-    padding-top:50px;
-    padding-bottom: 50px;
+    padding: 60px;
     border: 3px solid black;
+    gap: 5px;
+    margin: 30px auto;
 }
-input,button{
-    padding: 15px;
-    margin: 10px;
-    border: 3px solid black;
+.add-field input::placeholder{
+    text-align: center;
+    background-attachment: aliceblue;
+    color: rgb(60, 12, 60);
 }
-button{
-    background-color: green;
-    border: none;
-    color: aliceblue;
+.add-field button{
     border-radius: 5px;
+    padding: 15px;
+    background-color:green;
+    margin: 10px;
 }
-button:hover{
-    cursor: pointer;
-    background-color:rgba(0, 128, 0, 0.741);
-    border: 2px solid rgba(0, 0, 0, 0.707);
-}
+
 .delete:hover{
-    background-color: rgba(179, 63, 63, 0.762);
+    background-color: rgba(179, 63, 63, 0.47);
     border: 2px solid rgba(0, 0, 0, 0.707);
 }
 .edit-delete{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width:50%;
-    margin: auto;
+    width: 90%;
+    margin:10px auto;
     background-color:  rgb(103, 33, 103);
-    margin-bottom: 5px;
     color: aliceblue;
     padding: 5px;
     border: 2px solid black;
     border-radius: 3px;
 
 }
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 .delete{
+    flex:1;
     background-color: rgb(179, 63, 63);
+    padding: 10px;
+    color: aliceblue;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
 }
 .search-button{
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 .search-field{
-    width: 60%;
     background-color:rgba(80, 25, 80, 0.738);
     border-radius: 5px;
+    width:90%;
+    margin: 10px auto;
+    border: 2px solid black;
+    padding: 10px;
 }
 .search-field::placeholder{
     color: aliceblue;
+    text-align: center;
 }
 .todo{
     background-color: rgb(84, 19, 84);
@@ -101,16 +117,17 @@ button:hover{
     margin-bottom: 100px;
 }
 .Login{
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: auto;
+    gap: 5px;
 }
 .Login-Main{
     background-color: rgb(91, 28, 91) ;
     width: 30%;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -126,17 +143,7 @@ span:hover{
 }
 .h5:hover{
     cursor: pointer;
-    background-color: rgba(84, 19, 84, 0.658);
-}
-.h5{
-    display: inline;
-    background-color: rgb(84, 19, 84);
-    color:aliceblue;
-    border-radius: 3px;
-    margin: 15px;
-    position: absolute;
-    right: 0;
-    padding: 3px;
+    color:pink;
 }
 .forgot-input{
     width: 30%;
@@ -149,6 +156,17 @@ span:hover{
     border: 2px solid black;
     border-radius: 5px;
 }
+.forgot-input input{
+    border-radius: 5px;
+    padding: 15px;
+    background-color:aliceblue;
+}
+.forgot-input button{
+    border-radius: 5px;
+    padding: 15px;
+    background-color: green;
+    margin: 10px;
+}
 .icon{
     display: flex;
     justify-content: center;
@@ -157,12 +175,51 @@ span:hover{
 }
   .edit-change{
     display: flex;
+    gap: 10px;
+    width: 100%;
   }
   .edit{
-    max-width: 40%;
-    font-size: 0.6rem;
+    flex: 1;
+    color: aliceblue;
+    background-color: green;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
   }
-  .delete{
-    max-width:35%;
-    font-size: 0.6rem;
+  .Login input{
+    border-radius: 5px;
+    padding: 15px;
+    background-color:aliceblue;
+
   }
+
+.Login input::placeholder{
+    text-align: center;
+    color:rgb(122, 24, 122)
+}
+.Login button{
+    border-radius: 5px;
+    padding: 15px;
+    background-color:green;
+    margin: 10px;
+
+}
+.add-field input{
+    border-radius: 5px;
+    padding: 15px;
+    background-color:aliceblue;
+}
+@media (max-width:600px) {
+    .Login-Main{
+        width: 70%;
+    }
+    .add-field{
+        max-width: 70%;
+        margin: 20px auto;
+    }
+    .forgot-input{
+        width: 50%;
+    }
+}

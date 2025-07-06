@@ -7,13 +7,12 @@ function Server() {
     <>
     <div className='heading'>
     <h1>TO-DO</h1>
-    </div>
-    <div className='h5'>
-     <b onClick={()=>{
+     <b className='h5' onClick={()=>{
        if(confirm("Do you wanna Logout")){ localStorage.removeItem('token');navigate('/')};
      
      }}>LogOut</b>
      </div>
+    
     
     
     <div  className='Add'>

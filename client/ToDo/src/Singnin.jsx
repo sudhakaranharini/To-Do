@@ -26,10 +26,10 @@ function Singnin() {
    <div className='Login-Main'>
    <div className='Login'>
     
-    <input type="text" placeholder='UserName' onChange={(e)=>setUsername(e.target.value)}/>
-    <input type="email" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>
-    <input type="password" placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
-    <button onClick={handleClick}>SignUp</button>
+    <input className='login-input' type="text" placeholder='UserName' onChange={(e)=>setUsername(e.target.value)}/>
+    <input className='login-input' type="email" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>
+    <input className='login-input'type="password" placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
+    <button className='login-button' onClick={handleClick}>SignUp</button>
    </div>
    <div className='Span'>
    <span onClick={()=>navigate('/')}>Login?</span>
